@@ -1,0 +1,85 @@
+.content {
+  max-width: 1340px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 3em auto;
+  padding: 1em;
+}
+
+.form, .list {
+  width: 49%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  margin-bottom: 1em;
+}
+
+.form-note {
+  resize: none;
+}
+
+.form-input, 
+.form-note {
+  width: 400px;
+  padding: .5em;
+  box-sizing: border-box;
+}
+
+.button-group {
+  width: 400px;
+}
+
+
+.form-button {
+  display: block;
+  border: 1px solid #ddd;
+  background-color: green;
+  text-transform: uppercase;
+  width: max-content;
+  padding: .5em 2em;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 2em 0 0 auto;
+}
+
+.form-button:focus,
+.form-button:hover {
+  background-color: darkgreen;
+}
+
+.list {
+  margin: 0;
+  padding-top: 0;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.list-item {
+  margin: 0 1em;
+}
+
+.card-note {
+  padding: 1em;
+  background-color: #ddd;
+  width: 250px;
+  height: max-content;
+  margin: .5em 0;
+  border-radius: 4px;
+}
+
+.card-title {
+  margin: 0 0 .5em 0;
+}
+
+.card-text  {
+  margin: 0;
+}
