@@ -4,13 +4,18 @@ import CardNote from './CardNote'
 
 class ListNote extends Component {
   render() {
-    const notes = this.props.notes
+    const { notes, deleteNote } = this.props
 
     return (
       <ul className="list">
         {notes.map((note, index) => (
           <li className="list-item" key={index}>
-            <CardNote title={note.title} text={note.text} />
+            <CardNote
+              index={index}
+              title={note.title}
+              text={note.text}
+              deleteNote={deleteNote}
+            />
           </li>
         ))}
       </ul>
@@ -20,6 +25,7 @@ class ListNote extends Component {
 
 ListNote.propTypes = {
   notes: PropType.array,
+  deleteNote: PropType.func,
 }
 
 export default ListNote

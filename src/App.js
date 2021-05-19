@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FormNote from './components/FormNote'
+import ListCategories from './components/ListCategories'
 import ListNote from './components/ListNote'
 import './components/style.css'
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     super()
     this.state = {
       notes: [],
+      categories: [],
     }
   }
 
@@ -18,12 +20,34 @@ class App extends Component {
     })
   }
 
+  deleteNote = (index) => {
+    const notes = this.state.notes
+    notes.splice(index, 1)
+    this.setState({
+      notes: notes,
+    })
+  }
+
+  createCategory = (name) => {
+    const { categories } = this.state
+    const newCategories = [...categories, name]
+    this.setState({
+      categories: newCategories,
+    })
+  }
+
   render() {
     return (
-      <main className="content">
+      <section className="content">
         <FormNote createNote={this.createNote} />
-        <ListNote notes={this.state.notes} />
-      </main>
+        <main className="main-content">
+          <ListCategories
+            categories={this.state.categories}
+            createCategory={this.createCategory}
+          />
+          <ListNote notes={this.state.notes} deleteNote={this.deleteNote} />
+        </main>
+      </section>
     )
   }
 }

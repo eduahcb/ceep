@@ -7,7 +7,7 @@
   padding: 1em;
 }
 
-.form, .list {
+.form, .main-content {
   width: 49%;
 }
 
@@ -55,8 +55,24 @@
   background-color: darkgreen;
 }
 
+.categories-container,
+.categories-list {
+  display: flex;
+}
+
+.categories-item {
+  margin-left: 2ch;
+  background-color: #ddd;
+  padding: .5em;
+  border-radius: 10px;
+}
+
+.category-input {
+  margin-left: 2ch;
+}
+
 .list {
-  margin: 0;
+  margin-top: 3em;
   padding-top: 0;
   display: flex;
   list-style: none;
@@ -68,12 +84,19 @@
 }
 
 .card-note {
+  position: relative;
   padding: 1em;
   background-color: #ddd;
-  width: 250px;
+  width: 200px;
   height: max-content;
   margin: .5em 0;
   border-radius: 4px;
+}
+
+.delete-icon{
+  position: absolute;
+  top: 5px;
+  right: 2%;
 }
 
 .card-title {
@@ -82,4 +105,6 @@
 
 .card-text  {
   margin: 0;
+  word-wrap: break-word;
+  line-height: 2.5ch;
 }
