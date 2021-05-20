@@ -2,6 +2,29 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class ListCategories extends Component {
+  constructor() {
+    super()
+    this.state = {
+      categories: [],
+    }
+  }
+
+  componentDidMount = () => {
+    const { categories } = this.props
+    categories.subscribe(this.newCategories)
+  }
+
+  componentWillUnmount = () => {
+    const { categories } = this.props
+    categories.unsubscribe(this.newCategories)
+  }
+
+  newCategories = (categories) => {
+    this.setState({
+      categories: categories,
+    })
+  }
+
   handleCreateCategory = (e) => {
     const categoryName = e.target.value
     if (e.key !== 'Enter' || categoryName === '') return
@@ -21,9 +44,9 @@ class ListCategories extends Component {
     return (
       <section className="categories-container">
         <ul className="categories-list">
-          {categories.map((category, index) => (
+          {categories.getCategories().map((category, index) => (
             <li key={index} className="categories-item">
-              {category}
+              {category.category}
             </li>
           ))}
         </ul>
@@ -39,7 +62,7 @@ class ListCategories extends Component {
 }
 
 ListCategories.propTypes = {
-  categories: PropTypes.array,
+  categories: PropTypes.object,
   createCategory: PropTypes.func,
 }
 

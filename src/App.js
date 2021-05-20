@@ -3,49 +3,31 @@ import FormNote from './components/FormNote'
 import ListCategories from './components/ListCategories'
 import ListNote from './components/ListNote'
 import './components/style.css'
+
+import { CategoryList, NoteList } from './models'
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      notes: [],
-      categories: [],
-    }
-  }
-
-  createNote = (title, text) => {
-    const newNote = { title, text }
-    const newNotesList = [...this.state.notes, newNote]
-    this.setState({
-      notes: newNotesList,
-    })
-  }
-
-  deleteNote = (index) => {
-    const notes = this.state.notes
-    notes.splice(index, 1)
-    this.setState({
-      notes: notes,
-    })
-  }
-
-  createCategory = (name) => {
-    const { categories } = this.state
-    const newCategories = [...categories, name]
-    this.setState({
-      categories: newCategories,
-    })
+    this.notes = new NoteList()
+    this.categories = new CategoryList()
   }
 
   render() {
     return (
       <section className="content">
-        <FormNote createNote={this.createNote} />
+        <FormNote
+          categories={this.categories}
+          createNote={this.notes.addNote.bind(this.notes)}
+        />
         <main className="main-content">
           <ListCategories
-            categories={this.state.categories}
-            createCategory={this.createCategory}
+            categories={this.categories}
+            createCategory={this.categories.addCategory.bind(this.categories)}
           />
-          <ListNote notes={this.state.notes} deleteNote={this.deleteNote} />
+          <ListNote
+            notes={this.notes}
+            deleteNote={this.notes.deleteNote.bind(this.notes)}
+          />
         </main>
       </section>
     )

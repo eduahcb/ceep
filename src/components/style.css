@@ -16,6 +16,10 @@
   flex-direction: column;
 }
 
+.categories{
+  margin-bottom: 1em;
+}
+
 .form-input {
   border: 1px solid #ddd;
   background-color: #ddd;
@@ -26,8 +30,10 @@
   resize: none;
 }
 
+.categories, 
 .form-input, 
 .form-note {
+
   width: 400px;
   padding: .5em;
   box-sizing: border-box;
@@ -95,7 +101,7 @@
 
 .delete-icon{
   position: absolute;
-  top: 5px;
+  top: 9px;
   right: 2%;
 }
 
@@ -107,4 +113,14 @@
   margin: 0;
   word-wrap: break-word;
   line-height: 2.5ch;
+}
+
+.category-text {
+  font-size: .9em;
+  background-color: cadetblue;
+  padding: .3em;
+  width: max-content;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-bottom: 1em;
 }

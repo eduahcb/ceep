@@ -9,7 +9,8 @@ class CardNote extends Component {
   }
 
   render() {
-    const { title, text } = this.props
+    const { title, text, category } = this.props
+    console.log(title)
 
     return (
       <section className="card-note">
@@ -19,6 +20,9 @@ class CardNote extends Component {
           src={deleteIcon}
         />
         <header>
+          {category !== 'Sem Categoria' && (
+            <h4 className="category-text">{category}</h4>
+          )}
           <h3 className="card-title">{title}</h3>
         </header>
         <p className="card-text">{text}</p>
@@ -32,6 +36,7 @@ CardNote.propTypes = {
   text: PropType.string,
   deleteNote: PropType.func,
   index: PropType.number,
+  category: PropType.string,
 }
 
 export default CardNote
